@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
+import { LoadYears } from '../store/actions/vehicle.action';
+import { Store } from '@ngrx/store';
+import { VehicleState } from "../store/reducers/vehicle.reducer";
 
 @Component({
   selector: "app-fitment-container",
@@ -10,13 +13,13 @@ export class FitmentContainerComponent implements OnInit {
   years$: Observable<any>;
 
   // import the store into the constructor
-  constructor() {}
+  constructor(private store : Store<VehicleState>) {}
 
   ngOnInit() {}
 
   getYears() {
     console.log("getYears");
-
+    this.store.dispatch(new LoadYears())
     // dispatch an action to get array of years
     
 
