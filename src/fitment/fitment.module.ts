@@ -7,7 +7,6 @@ import { reducers } from './store'
 import { EffectsModule } from '@ngrx/effects';
 import { TireEffects } from './store/effects/vechile.effect';
 import { FitmentContainerComponent } from './fitment-container/fitment-container.component';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -15,8 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     HttpClientModule,
     StoreModule.forFeature('fitment', reducers),
-    EffectsModule.forRoot([TireEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    EffectsModule.forRoot([TireEffects])
   ],
   declarations: [FitmentContainerComponent],
 
